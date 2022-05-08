@@ -5,7 +5,7 @@ const EditUserForm = (props) => {
   //Actualiza los datos del usuario
 
   const {
-    reset, 
+    reset,
     register,
     handleSubmit,
     setValue,
@@ -24,7 +24,7 @@ const EditUserForm = (props) => {
     props.updateUser(props.currentUser.id, data);
 
     //limpiar campos
-   reset();
+    reset();
   };
 
   return (
@@ -39,7 +39,7 @@ const EditUserForm = (props) => {
       <span className="text-danger text-small d-block mb-2">
         {errors.username && "Este campo es obligatorio"}
       </span>
-      <button >Edit user</button>
+      <button>Edit user</button>
     </form>
   );
 };
