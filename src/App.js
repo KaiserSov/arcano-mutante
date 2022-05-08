@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import UserTable from './components/userTable';
 import AddUserForm from './components/AddUserForm';
-import EditUserForm from './components/AddUserForm';
+import EditUserForm from './components/EditUserForm';
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
 
   //state
   const [users, setUsers] = useState(usersData)
+  
 
   //Add users
   const addUser = (user) => {
@@ -39,25 +40,25 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState ({
     id: null,
-    name: '',
-    username: ''
-  })
+    name: "",
+    username: "",
+  });
 
   const editRow = (user) => {
     setEditing(true);
     setCurrentUser({
       id: user.id,
       name: user.name,
-      username: user.username
-    })
-  }
+      username: user.username,
+    });
+  };
 
   //Update the user when you edit it
   const updateUser = (id, updateUser) => {
     setEditing(false)
 
-    setUsers(users.map(user => (user.id === id ? updateUser : user)))
-  }
+    setUsers(users.map((user) => (user.id === id ? updateUser : user)));
+  };
 
   return (
     <div className='container'>
