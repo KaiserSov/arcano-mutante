@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import UserTable from './components/UserTable';
+import UserTable from './components/userTable';
 import AddUserForm from './components/AddUserForm';
 import EditUserForm from './components/AddUserForm';
 import { v4 as uuidv4 } from 'uuid';
