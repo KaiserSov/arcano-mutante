@@ -1,3 +1,11 @@
+Link video:
+
+Preguntas: 
+1. ¿Cuántos datos pueden ser almacenados en LocalStorage?
+2. A nivel empresarial, ¿con qué frecuencia es actualizado el código?
+3. ¿Es totalmente necesario tener un archivo index.html o todo se puede controlar desde jsx?
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
