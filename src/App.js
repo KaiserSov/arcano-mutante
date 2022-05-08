@@ -1,22 +1,34 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import UserTable from './components/userTable';
 import AddUserForm from './components/AddUserForm';
 import EditUserForm from './components/EditUserForm';
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-
   //Generates a random id
-  const usersData = [
-    { id: uuidv4(), name: 'Tania', username: 'floppydiskette' },
-    { id: uuidv4(), name: 'Craig', username: 'siliconeidolon' },
-    { id: uuidv4(), name: 'Ben', username: 'benisphere' },
-  ]
+
+  function informationLocal(){
+    const usersData = localStorage.getItem("form");
+
+    if (!usersData)
+    return [
+      { id: uuidv4(), name: 'Perencejita', username: 'Gala' },
+      { id: uuidv4(), name: 'Sutanito', username: 'Viktor' },
+      { id: uuidv4(), name: 'Peranito', username: 'Geralt' },
+    ];
+
+    return JSON.parse(usersData);
+  }
+
 
   //state
-  const [users, setUsers] = useState(usersData)
+  const [users, setUsers] = useState(informationLocal)
   
 
+  useEffect(() => {
+    localStorage.setItem("form", JSON.stringify(users));
+  }, [users]);
+  
   //Add users
   const addUser = (user) => {
     user.id = uuidv4()
