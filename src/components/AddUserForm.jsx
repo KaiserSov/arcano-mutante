@@ -3,29 +3,30 @@ import { useForm } from 'react-hook-form'
 
 const AddUserForm = (props) => {
 
-    const {register, handleSubmit, formState: { errors }} = useForm();
+    const {
+        reset,
+        register, 
+        handleSubmit, 
+        formState: { errors }} = useForm();
 
-    const onSubmit = (data, e) => {
+    const onSubmit = (data) => {
         console.log(data)
-
+        reset();
         props.addUser(data)
-
-        //Limpiar campos
-        e.target.reset();
     }
  
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <label>Name</label>
             <input type="text" name="name"  {...register("name", {
-                required: {value: true, message: 'Debes tener un name'}
+                required: {value: true, message: 'Debes asignar un name'}
             })}/>
             <div>
                 {errors?.name?.message}
             </div>
             <label>Username</label>
             <input type="text" name="username"  {...register("username", {
-            required: {value: true, message: 'Debes tener un username'}
+            required: {value: true, message: 'Debes asignar un username'}
         })} />
             <div>
                 {errors?.username?.message}
